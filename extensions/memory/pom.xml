@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.memory</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120215</version>
   <name>Sparse Map :: Memory Bundle</name>
   <description>Caching Support for Sparse Map (uses Ehcache for underlying cache).</description>
   <build>

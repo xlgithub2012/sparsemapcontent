@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.http</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120215</version>
   <name>Sparse Map :: Http Operations</name>
   <description>Provides Http support.</description>
   <build>
@@ -90,19 +90,19 @@
     <dependency>
        <groupId>org.sakaiproject.nakamura</groupId>
        <artifactId>uk.co.tfd.sm.template</artifactId>
-       <version>0.1-SNAPSHOT</version>
+       <version>0.1-20120215</version>
        <scope>compile</scope>
     </dependency>
     <dependency>
        <groupId>org.sakaiproject.nakamura</groupId>
        <artifactId>uk.co.tfd.sm.memory</artifactId>
-       <version>0.1-SNAPSHOT</version>
+       <version>0.1-20120215</version>
        <scope>compile</scope>
     </dependency>
     <dependency>
        <groupId>org.sakaiproject.nakamura</groupId>
        <artifactId>uk.co.tfd.sm.jetty</artifactId>
-       <version>0.1-SNAPSHOT</version>
+       <version>0.1-20120215</version>
        <scope>compile</scope>
     </dependency>
   </dependencies>

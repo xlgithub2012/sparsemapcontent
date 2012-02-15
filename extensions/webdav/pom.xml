@@ -11,7 +11,7 @@
   <groupId>org.sakaiproject.nakamura</groupId>
   <artifactId>org.sakaiproject.nakamura.webdav</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120215</version>
   <name>Sparse Map :: WebDav Support</name>
   <description>Provides PostgreSQL driver for Sparse, optional bundle </description>
   <properties>
@@ -45,7 +45,7 @@
   	<dependency>
   		<groupId>org.sakaiproject.nakamura</groupId>
   		<artifactId>org.sakaiproject.nakamura.milton</artifactId>
-  		<version>1.6.4-SNAPSHOT</version>
+  		<version>1.6.4-20120215</version>
   	</dependency>
     <dependency>
 	  <groupId>javax.servlet</groupId>

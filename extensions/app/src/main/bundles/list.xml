@@ -131,7 +131,7 @@
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>org.sakaiproject.nakamura.core</artifactId>
-            <version>1.4</version>
+            <version>1.4-20120215</version>
         </bundle>
 <!--
         <bundle>
@@ -153,29 +153,29 @@
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>org.sakaiproject.nakamura.solr</artifactId>
-            <version>1.3</version>
+            <version>1.3-20120215</version>
         </bundle>
    </startLevel>
    <startLevel level="15" >
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>org.sakaiproject.nakamura.webdav</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1-20120215</version>
         </bundle>
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>uk.co.tfd.sm.template</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1-20120215</version>
         </bundle>
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>uk.co.tfd.sm.http</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1-20120215</version>
         </bundle>
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>
             <artifactId>uk.co.tfd.sm.proxy</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1-20120215</version>
         </bundle>
         <bundle>
             <groupId>org.sakaiproject.nakamura</groupId>

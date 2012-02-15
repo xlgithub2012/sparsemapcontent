@@ -11,7 +11,7 @@
   <groupId>org.sakaiproject.nakamura</groupId>
   <artifactId>org.sakaiproject.nakamura.derby-driver</artifactId>
   <packaging>bundle</packaging>
-  <version>10.6.2.1-0.1-SNAPSHOT</version>
+  <version>10.6.2.1-0.1-20120215</version>
   <name>Sakai Nakamura :: Embedded Derby SPI Implementation</name>
   <description>Storage SPI implementation using Cassandra </description>
   <properties>

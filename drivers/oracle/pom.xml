@@ -10,7 +10,7 @@
 	<groupId>org.sakaiproject.nakamura</groupId>
 	<artifactId>org.sakaiproject.nakamura.oracle-driver</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.4-0.1-SNAPSHOT</version>
+	<version>1.4-0.1-20120215</version>
 	<name>Sparse Map :: Oracle SPI Implementation</name>
 	<description>Storage SPI implementation using Oracle </description>
 	<properties>

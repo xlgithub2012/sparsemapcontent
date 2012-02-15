@@ -11,7 +11,7 @@
   <groupId>org.sakaiproject.nakamura</groupId>
   <artifactId>org.sakaiproject.nakamura.milton</artifactId>
   <packaging>bundle</packaging>
-  <version>1.6.4-SNAPSHOT</version>
+  <version>1.6.4-20120215</version>
   <name>Sparse Map :: Milton Support</name>
   <description>Provides Milton Jar  </description>
   <properties>

@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.resource</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120215</version>
   <name>Sparse Map :: Resource Processing</name>
   <description>Provides Resource processing support.</description>
   <build>
@@ -82,12 +82,12 @@
     <dependency>
       <groupId>org.sakaiproject.nakamura</groupId>
       <artifactId>uk.co.tfd.sm.jaxrs</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>0.1-20120215</version>
    </dependency>
     <dependency>
       <groupId>org.sakaiproject.nakamura</groupId>
       <artifactId>org.sakaiproject.nakamura.core</artifactId>
-      <version>1.4</version>
+      <version>1.4-20120215</version>
    </dependency>
    <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -102,7 +102,7 @@
    <dependency>
       <groupId>org.sakaiproject.nakamura</groupId>
       <artifactId>uk.co.tfd.sm.integration</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>0.1-20120215</version>
       <scope>test</scope>
    </dependency>
   </dependencies>

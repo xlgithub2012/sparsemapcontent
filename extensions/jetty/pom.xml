@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.jetty</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120215</version>
   <name>Sparse Map :: Jetty Configuration</name>
   <description>Adds configuration and setup of default servlets for Jetty.</description>    
   <properties>
