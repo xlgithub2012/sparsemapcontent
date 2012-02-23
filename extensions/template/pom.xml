@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.template</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120223</version>
   <name>Sparse Map :: Template Engine</name>
   <description>Provides Templating support.</description>
   <build>

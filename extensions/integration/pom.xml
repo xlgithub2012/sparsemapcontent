@@ -10,7 +10,7 @@
   </parent>
   <artifactId>uk.co.tfd.sm.integration</artifactId>
   <packaging>jar</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120223</version>
   <name>Sparse Map :: Integration Tests</name>
   <description>Provides Integration Tests.</description>
   <dependencies>

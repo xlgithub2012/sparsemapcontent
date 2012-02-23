@@ -10,7 +10,7 @@
   </parent>
   <artifactId>extensions</artifactId>
   <packaging>pom</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-20120223</version>
   <name>Sparse Map :: Extensions Builder</name>
   <description>Reactor to build extensions.</description>
   <modules>
