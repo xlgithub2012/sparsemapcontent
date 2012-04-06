@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.sakaiproject.nakamura</groupId>
+		<artifactId>core-base</artifactId>
+		<version>5-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<groupId>org.sakaiproject.nakamura</groupId>
+	<artifactId>org.sakaiproject.nakamura.core</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.5.1-SNAPSHOT</version>
+	<name>Sparse Map :: Sparse Map Content Storage bundle.</name>
+	<description>Server that uses a sparse map to represent content mapping closely to a colum database like Cassandra.</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
+	</properties>
+	<scm>
+		<connection>scm:git:git://github.com/sakaiproject/sparsemapcontent.git</connection>
+		<developerConnection>scm:git:git@github.com:sakaiproject/sparsemapcontent.git</developerConnection>
+		<url>http://github.com/sakaiproject/sparsemapcontent/</url>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+						<configuration>
+							<finalName>core-serviceComponents.xml</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-Category>sparse-map</Bundle-Category>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Export-Package>
+							org.sakaiproject.nakamura.api.lite.*
+						</Export-Package>
+						<Service-Component />
+						<DynamicImport-Package>*</DynamicImport-Package>
+						<!-- These imports are here to allow consumers to use later versions
+								 of commons-io and Guava. SparseMap is tested with the version
+								 numbers stated. It may run with later versions, but you will 
+								 have to do your own testing. In general the use of both these 
+								 libraries is not sopisticated, and any version will probably do.
+								 ie, at your own risk	-->
+						<Import-Package>
+							org.apache.commons.io; version="1.4",
+							com.google.common.collect; version="9.0.0",
+							*
+						</Import-Package>
+						<Private-Package>org.sakaiproject.nakamura.lite.*</Private-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>copy-osgi-resources</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/target/scr-plugin-generated</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<executions>
+					<execution>
+						<!-- a test jar is needed for fragments -->
+						<id>test-jar</id>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<manifestFile>${basedir}/target/classes/META-INF/MANIFEST.MF</manifestFile>
+						<manifestEntries>
+							<Service-Component>OSGI-INF/core-serviceComponents.xml,OSGI-INF/serviceComponents.xml</Service-Component>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<includes>
+						<include>**/Test*.java</include>
+						<include>**/*Test.java</include>
+						<include>**/*TestCase.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.felix</groupId>
+										<artifactId>maven-scr-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals><goal>scr</goal></goals>
+									</pluginExecutionFilter>
+									<action><ignore /></action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-install-plugin</artifactId>
+										<versionRange>[2.3.1,)</versionRange>
+										<goals><goal>install-file</goal></goals>
+									</pluginExecutionFilter>
+									<action><ignore /></action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals><goal>enforce</goal></goals>
+									</pluginExecutionFilter>
+									<action><ignore /></action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.guava-osgi</groupId>
+			<artifactId>guava-osgi</artifactId>
+			<version>9.0.0</version>
+		</dependency>
+		<!-- osgi for events -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>1.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>1.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- We also need slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.5.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+
+		<!-- Since we will be running in OSGi we also include the following -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.6.2.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>findbugs</groupId>
+			<artifactId>annotations</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+			<!-- just needed for compiling, not runtime -->
+		</dependency>
+	</dependencies>
+
+	<!-- Sakai Maven2 repo has a copy of ye olde Cassandra thrift 0.6.5 jar -->
+	<repositories>
+		<repository>
+			<id>sakai-maven2</id>
+			<name>Sakai Maven Repo</name>
+			<layout>default</layout>
+			<url>http://source.sakaiproject.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>
+
