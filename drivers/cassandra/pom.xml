@@ -11,13 +11,13 @@
 	<groupId>org.sakaiproject.nakamura</groupId>
 	<artifactId>org.sakaiproject.nakamura.cassandra-driver</artifactId>
 	<packaging>bundle</packaging>
-	<version>0.6.5-0.5.0-0.1-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>Sakai Nakamura :: Cassandra SPI Implementation</name>
 	<description>Storage SPI implementation using Cassandra </description>
 	<scm>
-		<connection>scm:git:git://github.com/ieb/sparsemapcontent.git</connection>
-		<developerConnection>scm:git:git@github.com:ieb/sparsemapcontent.git</developerConnection>
-		<url>http://github.com/ieb/sparsemapcontent/</url>
+		<connection>scm:git:git://github.com/sakaiproject/sparsemapcontent.git</connection>
+		<developerConnection>scm:git:git@github.com:sakaiproject/sparsemapcontent.git</developerConnection>
+		<url>http://github.com/sakaiproject/sparsemapcontent/</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,8 +36,6 @@
 						<Service-Component></Service-Component>
 						<Fragment-Host>org.sakaiproject.nakamura.core</Fragment-Host>
 						<Private-Package>org.sakaiproject.nakamura.lite.storage.cassandra.*</Private-Package>
-						<Embed-Transitive>true</Embed-Transitive>
-						<Embed-Dependency>libthrift, apache-cassandra</Embed-Dependency>
 					</instructions>
 				</configuration>
 			</plugin>

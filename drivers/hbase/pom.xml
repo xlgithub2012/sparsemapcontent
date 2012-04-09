@@ -4,19 +4,19 @@
 	<parent>
 		<groupId>org.sakaiproject.nakamura</groupId>
 		<artifactId>core-base</artifactId>
-		<version>4</version>
-		<relativePath>../../parent/pom.xml</relativePath>
+		<version>5-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 	<groupId>org.sakaiproject.nakamura</groupId>
 	<artifactId>org.sakaiproject.nakamura.hbase-driver</artifactId>
 	<packaging>bundle</packaging>
-	<version>0.90.3-0.1-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>Sparse Map :: HBase SPI Implementation</name>
 	<description>Storage SPI implementation using HBase </description>
 	<scm>
-		<connection>scm:git:git://github.com/ieb/sparsemapcontent.git</connection>
-		<developerConnection>scm:git:git@github.com:ieb/sparsemapcontent.git</developerConnection>
-		<url>http://github.com/ieb/sparsemapcontent/</url>
+		<connection>scm:git:git://github.com/sakaiproject/sparsemapcontent.git</connection>
+		<developerConnection>scm:git:git@github.com:sakaiproject/sparsemapcontent.git</developerConnection>
+		<url>http://github.com/sakaiproject/sparsemapcontent/</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,8 +35,6 @@
 						<Service-Component></Service-Component>
 						<Fragment-Host>org.sakaiproject.nakamura.core</Fragment-Host>
 						<Private-Package>org.sakaiproject.nakamura.lite.storage.hbase.*</Private-Package>
-						<Embed-Transitive>true</Embed-Transitive>
-						<Embed-Dependency>hbase</Embed-Dependency>
 					</instructions>
 				</configuration>
 			</plugin>
