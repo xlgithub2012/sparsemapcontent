@@ -501,6 +501,7 @@ public class WideColumnIndexer extends AbstractIndexer implements CachingIndexer
             return client.registerDisposable(cacheResults(keySpace, columnFamily, properties, new PreemptiveCachedMapIterator(client, keySpace, columnFamily, rs, pst, rawResults, cachingManager)));
         } catch (SQLException e) {
             LOGGER.error(e.getMessage(), e);
+            client.resetConnection(null);
             throw new StorageClientException(e.getMessage() + " SQL Statement was " + sqlStatement,
                     e);
         } finally {
