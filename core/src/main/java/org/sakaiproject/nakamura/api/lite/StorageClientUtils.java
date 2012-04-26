@@ -180,7 +180,7 @@ public class StorageClientUtils {
             return "/";
         }
         int i = objectPath.lastIndexOf('/');
-        if (i == objectPath.length() - 1) {
+        while (i == objectPath.length() - 1) {
             i = objectPath.substring(0, i).lastIndexOf('/');
         }
         String res = objectPath;
