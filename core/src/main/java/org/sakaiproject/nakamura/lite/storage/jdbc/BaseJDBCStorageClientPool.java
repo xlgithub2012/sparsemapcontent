@@ -368,8 +368,9 @@ public class BaseJDBCStorageClientPool extends AbstractClientConnectionPool {
         return connection;
     }
 
-
-
+    public void resetConnection() {
+        connectionManager.clean();
+    }
 
     public String getValidationSql() {
         if ( sqlConfig != null ) {
